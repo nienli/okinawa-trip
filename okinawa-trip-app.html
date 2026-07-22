@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>2026沖繩旅遊｜四天三夜</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700;900&family=Noto+Sans+TC:wght@400;500;700;900&family=EB+Garamond:ital,wght@1,600&display=swap');
+
+:root{
+  --ink:#1E2E3A;
+  --ink-soft:#5B6B75;
+  --navy-deep:#1B3A4C;
+  --navy:#2F5A6E;
+  --ocean:#5C8A9B;
+  --mist:#C4D5D9;
+  --seal:#9E4A3C;
+  --paper:#F6F4EE;
+  --card:#FFFFFF;
+  --line:#DCD6C7;
+}
+
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+html,body{margin:0;padding:0;}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:'Noto Sans TC',sans-serif;
+  font-weight:500;
+  -webkit-font-smoothing:antialiased;
+  padding-bottom:78px;
+  min-height:100vh;
+}
+
+/* ---------- Header ---------- */
+.hero{
+  position:relative;
+  background:var(--paper);
+  color:var(--ink);
+  padding:34px 20px 22px;
+  border-bottom:1px solid var(--line);
+}
+.hero-inner{
+  position:relative;
+  padding-left:16px;
+}
+.hero-inner::before{
+  content:"";
+  position:absolute;
+  left:0;top:2px;bottom:2px;
+  width:3px;
+  background:var(--navy);
+}
+.eyebrow{
+  font-family:'EB Garamond',serif;
+  font-style:italic;
+  font-weight:600;
+  font-size:13px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--navy);
+  margin-bottom:6px;
+}
+h1.trip-title{
+  font-family:'Noto Serif TC',serif;
+  font-weight:900;
+  font-size:32px;
+  margin:0 0 4px;
+  line-height:1.3;
+  color:var(--ink);
+  letter-spacing:.5px;
+}
+.trip-title small{
+  display:block;
+  font-size:15px;
+  font-weight:700;
+  font-family:'Noto Serif TC',serif;
+  color:var(--navy);
+  letter-spacing:3px;
+  margin-top:4px;
+}
+.trip-sub{
+  font-size:12.5px;
+  color:var(--ink-soft);
+  margin-top:14px;
+  display:flex;
+  flex-direction:column;
+  gap:5px;
+}
+.trip-sub span{display:flex;align-items:center;gap:7px;}
+.trip-sub b{color:var(--ink);font-weight:700;}
+
+.hero-corner{
+  position:absolute;
+  top:20px;right:20px;
+  writing-mode:vertical-rl;
+  font-family:'EB Garamond',serif;
+  font-style:italic;
+  font-weight:600;
+  font-size:11px;
+  letter-spacing:3px;
+  color:var(--mist);
+  text-transform:uppercase;
+}
+
+/* ---------- Section wrapper ---------- */
+.view{display:none;padding:20px 18px 10px;max-width:560px;margin:0 auto;}
+.view.active{display:block;animation:fadeIn .25s ease;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+
+.section-title{
+  font-family:'Noto Sans TC',sans-serif;
+  font-weight:700;
+  font-size:18px;
+  margin:24px 0 14px;
+  color:var(--navy-deep);
+  display:flex;
+  align-items:baseline;
+  gap:10px;
+  padding-bottom:8px;
+  border-bottom:1px solid var(--line);
+}
+.section-title:first-child{margin-top:2px;}
+.section-title .tag{
+  font-family:'Noto Sans TC',sans-serif;
+  font-size:13px;
+  color:var(--ink-soft);
+  font-weight:700;
+}
+
+/* ---------- Day tabs ---------- */
+.day-tabs{
+  display:flex;
+  gap:0;
+  overflow-x:auto;
+  margin-bottom:20px;
+  border:1px solid var(--line);
+  border-radius:2px;
+}
+.day-tab{
+  flex:1;
+  padding:11px 10px;
+  background:var(--card);
+  border:none;
+  border-right:1px solid var(--line);
+  font-weight:700;
+  font-size:12.5px;
+  color:var(--ink-soft);
+  cursor:pointer;
+  white-space:nowrap;
+  font-family:'Noto Sans TC',sans-serif;
+}
+.day-tab:last-child{border-right:none;}
+.day-tab .d{display:block;font-family:'Noto Sans TC',sans-serif;font-size:10.5px;font-weight:700;opacity:.75;margin-bottom:2px;letter-spacing:.5px;}
+.day-tab.active{
+  background:var(--navy-deep);
+  color:#fff;
+}
+.day-tab.active .d{opacity:.8;}
+
+.day-panel{display:none;}
+.day-panel.active{display:block;}
+
+.day-note{
+  background:#EAF1F1;
+  border:1px solid var(--mist);
+  border-left:3px solid var(--navy);
+  padding:12px 14px;
+  font-size:12.5px;
+  font-weight:600;
+  line-height:1.7;
+  margin-bottom:18px;
+  color:var(--navy-deep);
+}
+
+/* ---------- Timeline ---------- */
+.timeline{position:relative;padding-left:24px;}
+.timeline::before{
+  content:"";
+  position:absolute;
+  left:5px;top:6px;bottom:6px;
+  width:1px;
+  background:var(--line);
+}
+.item{position:relative;margin-bottom:18px;}
+.item::before{
+  content:"";
+  position:absolute;
+  left:-24px;top:5px;
+  width:9px;height:9px;
+  border-radius:50%;
+  background:var(--paper);
+  border:2px solid var(--navy);
+}
+.item.meal::before{border-color:var(--seal);}
+.item.transport::before{border-color:var(--ocean);background:var(--ocean);}
+
+.time{
+  font-family:'Noto Sans TC',sans-serif;
+  font-weight:700;
+  font-size:16px;
+  color:var(--navy-deep);
+  letter-spacing:.5px;
+}
+.card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:2px;
+  padding:13px 15px;
+  margin-top:6px;
+}
+.card h3{margin:0 0 5px;font-size:15px;font-weight:700;font-family:'Noto Sans TC',sans-serif;color:var(--ink);}
+.card p{margin:0;font-size:12.5px;font-weight:500;line-height:1.7;color:var(--ink-soft);}
+.card .meta{
+  margin-top:9px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  font-size:11px;
+}
+.pill{
+  background:transparent;
+  border:1px solid var(--mist);
+  padding:3px 9px;
+  border-radius:20px;
+  color:var(--navy);
+  font-weight:700;
+  letter-spacing:.3px;
+}
+.navbtn{
+  margin-top:11px;
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  background:var(--navy-deep);
+  color:#fff;
+  text-decoration:none;
+  font-size:12.5px;
+  font-weight:700;
+  padding:8px 15px;
+  border-radius:2px;
+  letter-spacing:.5px;
+}
+.navbtn.alt{background:var(--seal);}
+.navbtn svg{width:14px;height:14px;}
+
+.rec-box{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:2px;
+  padding:14px 15px;
+  margin-top:18px;
+  font-size:12.5px;
+  font-weight:500;
+  line-height:1.8;
+}
+.rec-box h4{
+  margin:0 0 8px;
+  font-size:13.5px;
+  color:var(--seal);
+  font-family:'Noto Sans TC',sans-serif;
+  font-weight:600;
+  letter-spacing:.5px;
+}
+.rec-box ul{margin:0;padding-left:16px;color:var(--ink-soft);}
+.rec-box li{margin-bottom:4px;}
+
+/* ---------- Simple content list (transport/hotel/packing/budget) ---------- */
+.info-card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:2px;
+  padding:17px;
+  margin-bottom:14px;
+}
+.info-card h3{
+  margin:0 0 9px;
+  font-size:15px;
+  font-weight:600;
+  font-family:'Noto Sans TC',sans-serif;
+  color:var(--navy-deep);
+}
+.info-card p{margin:0 0 6px;font-size:13px;font-weight:500;line-height:1.75;color:var(--ink-soft);}
+.info-card table{width:100%;border-collapse:collapse;font-size:12px;margin-top:8px;}
+.info-card td,.info-card th{padding:7px 4px;border-bottom:1px solid var(--line);text-align:left;color:var(--ink-soft);font-weight:500;}
+.info-card th{color:var(--navy);font-weight:700;font-family:'Noto Sans TC',sans-serif;letter-spacing:.5px;}
+.checklist{list-style:none;margin:0;padding:0;}
+.checklist li{
+  display:flex;gap:9px;align-items:flex-start;
+  font-size:13px;font-weight:500;padding:7px 0;border-bottom:1px solid var(--line);color:var(--ink-soft);
+}
+.checklist li:last-child{border-bottom:none;}
+.checklist input{margin-top:3px;accent-color:var(--navy);}
+.budget-row{display:flex;justify-content:space-between;font-size:13px;font-weight:500;padding:8px 0;border-bottom:1px solid var(--line);color:var(--ink-soft);}
+.budget-row:last-child{border-bottom:none;}
+.budget-total{
+  display:flex;justify-content:space-between;
+  font-weight:600;font-size:15px;color:var(--seal);
+  padding-top:11px;margin-top:4px;border-top:1px solid var(--ink);
+  font-family:'Noto Sans TC',sans-serif;
+}
+.stamp{
+  display:inline-block;
+  font-family:'Noto Sans TC',sans-serif;
+  font-size:11.5px;
+  color:var(--seal);
+  border:1px solid var(--seal);
+  border-radius:50%;
+  padding:2px 7px;
+  margin-left:6px;
+}
+
+/* ---------- Bottom nav ---------- */
+.tabbar{
+  position:fixed;left:0;right:0;bottom:0;
+  background:rgba(246,244,238,0.97);
+  backdrop-filter:blur(6px);
+  border-top:1px solid var(--line);
+  display:flex;
+  padding:6px 4px calc(6px + env(safe-area-inset-bottom));
+  z-index:50;
+}
+.tabbtn{
+  flex:1;
+  background:none;border:none;
+  display:flex;flex-direction:column;align-items:center;gap:3px;
+  padding:6px 2px;
+  color:var(--ink-soft);
+  font-family:'Noto Sans TC',sans-serif;
+  font-size:10.5px;
+  font-weight:600;
+  cursor:pointer;
+}
+.tabbtn svg{width:19px;height:19px;}
+.tabbtn.active{color:var(--navy-deep);font-weight:800;}
+
+::-webkit-scrollbar{display:none;}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-corner">OKINAWA · NAHA</div>
+  <div class="hero-inner">
+    <div class="eyebrow">Travel Diary — 2 Travelers</div>
+    <h1 class="trip-title">2026沖繩旅遊<small>四天三夜</small></h1>
+    <div class="trip-sub">
+      <span>📅 <b>8/12（三）– 8/15（六）</b></span>
+      <span>🏨 <b>JR九州Blossom那霸酒店</b></span>
+    </div>
+  </div>
+</div>
+
+<!-- ============ DAYS VIEW ============ -->
+<div class="view active" id="view-days">
+
+  <div class="day-tabs" id="dayTabs">
+    <button class="day-tab active" data-day="1"><span class="d">8/12 三</span>Day 1</button>
+    <button class="day-tab" data-day="2"><span class="d">8/13 四</span>Day 2</button>
+    <button class="day-tab" data-day="3"><span class="d">8/14 五</span>Day 3</button>
+    <button class="day-tab" data-day="4"><span class="d">8/15 六</span>Day 4</button>
+  </div>
+
+  <!-- DAY 1 -->
+  <div class="day-panel active" id="day-1">
+    <div class="day-note">🏝️ 國際通 × 牧志市場漫遊日。行李先寄放飯店，晚餐後去浮島通り逛特色小店。</div>
+    <div class="timeline">
+      <div class="item transport"><div class="time">06:50</div><div class="card"><h3>✈️ 桃園起飛</h3><p>虎航 IT230，預計09:20抵達那霸</p></div></div>
+      <div class="item transport"><div class="time">09:20–10:00</div><div class="card"><h3>入境・領行李</h3><p>那霸機場入境大廳</p></div></div>
+      <div class="item transport"><div class="time">10:00</div><div class="card"><h3>🚈 機場 → 飯店寄放行李</h3><p>單軌電車 那霸空港站 → 美榮橋站，約14分鐘，出南口步行約5分鐘到飯店</p><div class="meta"><span class="pill">單程約270日圓/人</span><span class="pill">約14分鐘＋步行5分</span></div>
+        <a class="navbtn" target="_blank" href="https://www.google.com/maps/dir/?api=1&destination=2+Chome-16-1+Makishi%2C+Naha%2C+Okinawa+900-0013">開始導航</a>
+      </div></div>
+      <div class="item meal"><div class="time">10:30</div><div class="card"><h3>🍳 早午餐</h3><p>先逛逛牧志周邊再決定，推薦豬肉蛋飯糰或C&C Breakfast，也可以試試沖繩そば當早午餐</p></div></div>
+      <div class="item"><div class="time">12:00</div><div class="card"><h3>國際通</h3><p>那霸最熱鬧的購物街，步行走逛</p>
+        <a class="navbtn" target="_blank" href="https://www.google.com/maps/dir/?api=1&destination=%E5%9C%8B%E9%9A%9B%E9%80%9A%20%E9%82%A3%E9%9C%B8">開始導航</a>
+      </div></div>
+      <div class="item"><div class="time">13:30</div><div class="card"><h3>平和通商店街</h3><p>國際通內的老街商店街，在地感十足</p>
+        <a class="navbtn" target="_blank" href="https://www.google.com/maps/dir/?api=1&destination=%E5%B9%B3%E5%92%8C%E9%80%9A%E5%95%86%E5%BA%97%E8%A1%97">開始導航</a>
+      </div></div>
+      <div class="item"><div class="time">14:30</div><div class="card"><h3>第一牧志公設市場</h3><p>「沖繩人的廚房」，可買海鮮上樓加工現吃</p><div class="meta"><span class="pill">營業8:00–22:00（2樓食堂L.O.20:00）</span><span class="pill">每月第4週日公休</span></div>
+        <a class="navbtn" target="_blank" href="https://www.google.com/maps/dir/?api=1&destination=%E7%AC%AC%E4%B8%80%E7%89%A7%E5%BF%97%E5%85%AC%E8%A8%AD%E5%B8%82%E5%A0%B4">開始導航</a>
+      </div></div>
+      <div class="item meal"><div class="time">15:30</div><div class="card"><h3>🍦 Blue Seal 冰淇淋</h3><p>國際通店，經典口味鹽金楚糕</p><div class="meta"><span class="pill">營業10:00–22:30（夏季至23:00）</span><span class="pill">全年無休</span></div>
+        <a class="navbtn" target="_blank" href="https://www.google.com/maps/dir/?api=1&destination=Blue+Seal+1-2-32+Makishi+Naha">開始導航</a>
+      </div></div>
+      <div class="item"><div class="time">16:30</div><div class="card"><h3>🏨 回飯店 Check-in</h3><p>步行約10分鐘，稍作休息</p></div></div>
+      <div class="item meal"><div class="time">18:30</div><div class="card"><h3>🍲 晚餐・阿古豬涮涮鍋</h3><p>砂浜 島黑豬涮涮鍋（美榮橋站步行3分鐘，離飯店最近）</p>
+        <div class="meta"><span class="pill">5,500日圓/人起</span><span class="pill">建議先預約</span><span class="pill">營業12:00–23:00（L.O.22:00）</span><span class="pill">全年無休</span></div>
+        <a class="navbtn alt" target="_blank" href="https://www.google.com/maps/dir/?api=1&destination=%E7%A0%82%E6%B5%9C%E5%B3%B6%E9%BB%92%E8%B1%9A%E6%B6%AE%E6%B6%AE%E9%8D%8B%20%E9%82%A3%E9%9C%B8">開始導航</a>
+      </div></div>
+      <div class="item"><div class="time">20:00</div><div class="card"><h3>🛍️ 浮島通り 特色小店</h3><p>國際通旁的巷弄（入口在ローソン便利商店旁），選物店、皮革工坊、二手古著、T恤選物、手工肥皂等特色小店聚集，氣氛比國際通悠閒</p>
+        <div class="meta"><span class="pill">部分店家19:00–19:30打烊</span><span class="pill">咖啡廳、酒吧開得較晚</span></div>
+        <p style="margin-top:8px;font-size:12px;color:var(--ink-soft);">因為晚上去，建議先掃過一輪看展示櫥窗，有興趣的店家白天（例如Day4最後採買）再回來慢慢逛更保險</p>
+        <a class="navbtn" target="_blank" href="https://www.google.com/maps/dir/?api=1&destination=%E6%B5%AE%E5%B3%B6%E9%80%9A%E3%82%8A%20%E9%82%A3%E8%A6%87">開始導航</a>
+      </div></div>
+    </div>
+    <div class="rec-box">
+      <h4>📍 順路推薦</h4>
+      <ul>
+        <li>早午餐備案：豬肉蛋飯糰ポーたま牧志市場店（390日圓起）</li>
+        <li>沖繩そば：花笠食堂（國際通，招牌沖繩麵＋雜炊飯，銅板價）</li>
+        <li>晚餐備案：暖暮拉麵牧志店／國際通屋台村（居酒屋聚落）</li>
+        <li>伴手禮：雪鹽相關製品（塩屋）、唐吉訶德零食</li>
+        <li>黑糖拿鐵（市區版）：T&M Coffee或Tokkuri Kiwata Coffee，都在國際通旁的新天堂通小巷內，500-600日圓</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- DAY 2 -->
+  <div class="day-panel" id="day-2">
+    <div class="day-note">🚌 中北部一日跟團（已預訂Klook行程）：萬座毛・古宇利島・美麗海水族館・美國村。集合地點在BLUE SEAL久茂地店，離飯店不遠；行程結束時間依當日交通狀況可能提前或延後。</div>
+    <div class="timeline">
+      <div class="item transport"><div class="time">08:20</div><div class="card"><h3>集合出發</h3><p>集合地點：<strong>BLUE SEAL 久茂地店</strong>（那霸縣廳前RYUBO百貨1F）。請尋找持有Easygo旗幟或身穿Easygo背心的導遊報到，並出示預約姓名或預約號碼。<strong style="color:var(--seal);">逾時未到視同放棄，不予退費，務必提早到場</strong></p><div class="meta"><span class="pill">已預訂Klook行程</span></div>
+        <a class="navbtn" target="_blank" href="https://www.google.com/maps/dir/?api=1&destination=BLUE+SEAL+%E4%B9%85%E8%8C%82%E5%9C%B0%E5%BA%97+RYUBO%E7%99%BE%E8%B2%A8">開始導航到集合點</a>
+      </div></div>
+      <div class="item"><div class="time">09:30</div><div class="card"><h3>萬座毛（30分鐘）</h3><p>沖繩代表性海蝕崖地形，18世紀琉球王到訪時讚嘆這片草原「可容納萬人齊坐」而得名。沿環狀步道走一圈約20-30分鐘，斷崖高約20公尺，草原＋碧海交織的景色很壯闊。</p>
+        <div class="meta"><span class="pill">🎯必拍：象鼻岩（經典地標）</span><span class="pill">懸崖風大，抓好帽子、避免穿寬鬆裙子</span></div>
+        <a class="navbtn" target="_blank" href="https://www.google.com/maps/dir/?api=1&destination=%E8%90%AC%E5%BA%A7%E6%AF%9B">查看位置</a>
+      </div></div>
+      <div class="item"><div class="time">11:05</div><div class="card"><h3>古宇利島（50分鐘）</h3><p>沖繩本島周邊最長的跨海離島大橋，開車行經時兩側湛藍海景延展開來，是整段路程最美的畫面之一。</p>
+        <div class="meta"><span class="pill">🎯必拍：心形岩（Ti-nu海灘，嵐代言廣告景點爆紅）</span><span class="pill">古宇利大橋南端展望所（遠眺跨海大橋全景）</span></div>
+        <p style="margin-top:6px;font-size:12px;color:var(--ink-soft);">時間有限，建議挑心形岩或展望所其中一個拍照留念就好，兩個都拍可能會來不及</p>
+        <a class="navbtn" target="_blank" href="https://www.google.com/maps/dir/?api=1&destination=%E5%8F%A4%E5%AE%87%E5%88%A9%E5%B3%B6">查看位置</a>
+      </div></div>
+      <div class="item meal"><div class="time">12:30</div><div class="card"><h3>美麗海水族館（自由活動3小時）</h3><p>門票已含在團費裡，不用另外買。海豚秀時間13:00、15:00，兩場都能安排進去看。提供沖繩風炊飯輕食午餐（不提供素食或更換餐點）</p>
+        <div class="meta"><span class="pill">🎯必看：黑潮之海大水槽（世界第二大水槽，鯨鯊＋鬼蝠魟同游）</span><span class="pill">15:00鯨鯊餵食解說（鯨鯊會垂直立起進食，很震撼）</span></div>
+        <p style="margin-top:6px;font-size:12px;color:var(--ink-soft);">3樓珊瑚之海還有超可愛的花園鰻可以看，水槽側邊仰望走道是《蠟筆小新》電影同款打卡場景</p>
+        <a class="navbtn" target="_blank" href="https://www.google.com/maps/dir/?api=1&destination=%E7%BE%8E%E9%BA%97%E6%B5%B7%E6%B0%B4%E6%97%8F%E9%A4%A8">查看位置</a>
+      </div></div>
+      <div class="item meal"><div class="time">17:00</div><div class="card"><h3>美國村（1小時，可在此解散）</h3><p>原駐日美軍基地遺址改建的美式風情商圈，色彩繽紛的建築、街頭藝人、裝置藝術隨處可拍。19:00跟團遊覽車會出發，直接送回<strong>那霸縣廳前</strong>（跟集合點同一區域，離飯店很近）；如果想留久一點，可以脫隊自行搭巴士回去</p>
+        <div class="meta"><span class="pill">🎯必拍：日落海灘（黃昏時段最美，橙紅色夕陽染海）</span></div>
+        <p style="margin-top:6px;font-size:12px;color:var(--ink-soft);">⚠️地標摩天輪已於2026年拆除改建飯店，現在主要亮點是日落海灘和商場街景，逛街拍照動線不受影響</p>
+        <a class="navbtn" target="_blank" href="https://www.google.com/maps/dir/?api=1&destination=%E7%BE%8E%E5%9C%8B%E6%9D%91%20%E5%8C%97%E8%B0%B7">開始導航</a>
+      </div></div>
+      <div class="item transport"><div class="time">19:00</div><div class="card"><h3>🚌 跟團回程 或 自行返回</h3><p><strong>選項A｜跟遊覽車回程</strong>：19:00從美國村出發，直接送到那霸縣廳前解散，離飯店步行約10-15分鐘。行程結束時間依當日交通狀況可能提前或延後，請留意導遊通知。</p>
+        <p style="margin-top:8px;"><strong>選項B｜脫隊自行搭車</strong>（想在美國村多留一下）</p>
+        <div class="meta"><span class="pill">公車約900日圓/人</span><span class="pill">計程車約3,000–3,500日圓（整台）</span></div>
+        <p style="margin-top:8px;font-size:12.5px;"><strong>東京巴士TK05（北谷門戶⇄國際通，最推薦）</strong><br>北谷發車：12:00・13:30・15:30・17:00・19:00・20:15（20:15班次只到國際通入口，不回機場）</p>
+        <p style="margin-top:6px;font-size:12.5px;"><strong>120號公車（名護西空港線）</strong><br>在「軍病院前」站下車，步行3分鐘到美國村；約30分鐘一班，末班時間建議當天在站牌現場確認</p>
+        <a class="navbtn" target="_blank" href="https://www.google.com/maps/dir/?api=1&destination=2+Chome-16-1+Makishi%2C+Naha%2C+Okinawa+900-0013">開始導航回飯店</a>
+      </div></div>
+    </div>
+    <div class="rec-box">
+      <h4>📍 順路推薦</h4>
+      <ul>
+        <li>美國村晚餐：琉球之牛北谷店／迴轉壽司市場美浜店／Chatan Dunchi（海景居酒屋）</li>
+        <li>甜點：Blue Seal美國村店（Depot Island Seaside 2樓，邊吃冰邊看海）</li>
+        <li>⚠️ 跟團回程直接送到縣廳前很方便，如果不想自己找車，19:00準時跟車回去是最省事的選擇</li>
+      </ul>
+    </div>
+  </div>
+
+
+  <!-- DAY 3 -->
+  <div class="day-panel" id="day-3">
+    <div class="day-note">🛍️ 前一天跟團較累，Day3不用趕早，10:30–11:00再出門即可。Parco City逛街，晚餐回國際通吃燒肉Buchi Kumojiten（已訂18:40）。</div>
+    <div class="timeline">
+      <div class="item transport"><div class="time">10:30–11:00</div><div class="card"><h3>🚌 前往 Parco City（兩種走法皆可）</h3>
+        <p style="font-weight:700;color:var(--navy-deep);">方式A｜縣廳北口公車（推薦，飯店步行可達，免轉乘）</p>
+        <p>從飯店步行約10–15分鐘到「縣廳北口」巴士站，搭乘<strong>26號（琉球巴士）</strong>或32、43、309、334、385號（沖繩巴士），直達PARCO CITY前站，車程約20分鐘。</p>
+        <div class="meta"><span class="pill">單程350–460日圓</span><span class="pill">單趟直達不用轉乘</span></div>
+        <p style="margin-top:10px;font-weight:700;color:var(--navy-deep);">方式B｜單軌電車＋歌町站接駁車</p>
+        <p>美榮橋站搭單軌電車到歌町站（約8分鐘，230–370日圓），出站左手邊轉乘付費接駁車（約20分鐘，300日圓）。</p>
+        <div class="meta"><span class="pill">總車程約30–35分鐘</span><span class="pill">需轉乘一次</span></div>
+        <p style="margin-top:10px;font-size:12px;color:var(--ink-soft);">兩種方式時間差不多，方式A少一次轉乘、離飯店近；方式B適合已經很熟悉單軌電車動線，兩種都可行，看當天心情選一種即可。</p>
+        <a class="navbtn" target="_blank" href="https://www.google.com/maps/dir/?api=1&destination=SAN-A+PARCO+CITY+Okinawa">開始導航</a>
+      </div></div>
+      <div class="item"><div class="time">11:30</div><div class="card"><h3>Parco City 逛街</h3><p>沖繩最大購物中心之一</p>
+        <div class="meta"><span class="pill">全館營業10:00–22:00</span><span class="pill">部分餐飲店較早開9:00</span></div>
+        <p style="margin-top:8px;"><strong>想逛店家：</strong>3COINS、GU、UNIQLO、無印良品、藥妝店（松本清等）、HOKA（鞋類多在ABC-MART GRAND STAGE或運動鞋專區內，建議現場詢問店員位置）</p>
+      </div></div>
+      <div class="item meal"><div class="time">13:00</div><div class="card"><h3>午餐</h3><p>館內選擇多，迴轉壽司／拉麵／洋食，現場再決定</p></div></div>
+      <div class="item transport"><div class="time">16:30</div><div class="card"><h3>🚌 返回國際通</h3><p>原本搭哪種方式去，回程搭同一種最順，18:40用餐前留點緩衝時間</p>
+        <p style="margin-top:6px;font-size:12.5px;"><strong>方式A回程</strong>：PARCO CITY前站搭26/32/43/309/334/385號公車，在「縣廳北口」下車</p>
+        <p style="margin-top:6px;font-size:12.5px;"><strong>方式B回程</strong>：接駁車回歌町站，約09:20首班～22:05末班，再轉單軌電車</p>
+      </div></div>
+      <div class="item meal"><div class="time">18:40</div><div class="card"><h3>🥩 晚餐・燒肉 Buchi Kumojiten（已訂位）</h3><p>ぶち久茂地店</p><div class="meta"><span class="pill">預算3,000日圓內/人</span><span class="pill">營業17:00–22:00・料理L.O.21:30</span></div>
+        <a class="navbtn alt" target="_blank" href="https://www.google.com/maps/dir/?api=1&destination=%E3%81%B6%E3%81%A1%E4%B9%85%E8%8C%82%E5%9C%B0%E5%BA%97%20%E9%82%A3%E9%9C%B8">開始導航</a>
+      </div></div>
+      <div class="item"><div class="time">20:30</div><div class="card"><h3>🛍️ 堂吉訶德</h3><p>國際通店，藥妝零食伴手禮一次購足，24小時營業不用趕時間</p><div class="meta"><span class="pill">24小時營業</span></div>
+        <a class="navbtn" target="_blank" href="https://www.google.com/maps/dir/?api=1&destination=%E5%A0%82%E5%90%89%E8%A8%B6%E5%BE%B7%20%E9%82%A3%E9%9C%B8%E5%9C%8B%E9%9A%9B%E9%80%9A">開始導航</a>
+      </div></div>
+      <div class="item"><div class="time">21:30</div><div class="card"><h3>回飯店休息</h3><p>步行返回</p></div></div>
+    </div>
+    <div class="rec-box">
+      <h4>📍 順路推薦</h4>
+      <ul>
+        <li>Parco City周邊也有連鎖餐廳可作午餐備案</li>
+        <li>阿古豬火鍋備案：CHABU那霸東町店（旭橋站步行3分鐘）</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- DAY 4 -->
+  <div class="day-panel" id="day-4">
+    <div class="day-note">🛫 最後採買日，記得留時間逛機場免稅店，21:40起飛回桃園。</div>
+    <div class="timeline">
+      <div class="item"><div class="time">10:30</div><div class="card"><h3>退房</h3><p>行李可寄放櫃檯或帶著走</p></div></div>
+      <div class="item"><div class="time">11:00</div><div class="card"><h3>國際通・牧志周邊最後採買</h3><p>想去哪裡再逛逛，把還沒買的補齊</p></div></div>
+      <div class="item meal"><div class="time">12:30</div><div class="card"><h3>午餐</h3><p>尚未決定，可就近選擇</p></div></div>
+      <div class="item transport"><div class="time">16:30</div><div class="card"><h3>🚈 前往機場</h3><p>美榮橋站 → 那霸空港站，約14分鐘</p><div class="meta"><span class="pill">約270日圓/人</span></div>
+        <a class="navbtn" target="_blank" href="https://www.google.com/maps/dir/?api=1&destination=%E9%82%A3%E9%9C%B8%E6%A9%9F%E5%A0%B4">開始導航</a>
+      </div></div>
+      <div class="item"><div class="time">16:45</div><div class="card"><h3>🛍️ 機場免稅店</h3><p>抵達後可先慢慢逛，時間很充裕</p></div></div>
+      <div class="item meal"><div class="time">18:00</div><div class="card"><h3>晚餐</h3><p>機場內或候機前，尚未決定</p></div></div>
+      <div class="item transport"><div class="time">19:00–19:30</div><div class="card"><h3>虎航櫃檯辦理登機手續</h3><p>報到、託運行李（去程20kg、回程25kg額度）</p></div></div>
+      <div class="item transport"><div class="time">21:40</div><div class="card"><h3>✈️ 起飛回桃園</h3><p>虎航 IT233，預計22:10抵達</p></div></div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ============ TRANSPORT VIEW ============ -->
+<div class="view" id="view-transport">
+  <div class="section-title">交通總覽<span class="tag">不自駕</span></div>
+
+  <div class="info-card">
+    <h3>🚈 那霸單軌電車（Yui-Rail／ゆいレール）</h3>
+    <p>連結機場與市區的主要交通工具，機場站到飯店最近的<strong>美榮橋站</strong>約14分鐘。</p>
+    <table>
+      <tr><th>票種</th><th>價格</th></tr>
+      <tr><td>單程（機場→美榮橋）</td><td>約270–320日圓</td></tr>
+      <tr><td>一日券</td><td>成人1,000日圓（24小時內搭4次以上回本）</td></tr>
+    </table>
+  </div>
+
+  <div class="info-card">
+    <h3>🗺️ 單軌電車路線圖</h3>
+    <p style="margin-bottom:10px;">全線由西南到東北共19站，飯店最近站是<strong>美榮橋站</strong>（往國際通走約5分鐘）。</p>
+    <div style="font-size:12px;line-height:2.1;">
+      <div style="display:flex;justify-content:space-between;border-bottom:1px dashed var(--line);padding:4px 0;"><span style="width:26px;color:var(--navy);font-weight:700;">1</span><span style="flex:1;">那覇空港<br><span style="color:var(--ink-soft);">Naha Airport／那霸機場</span></span></div>
+      <div style="display:flex;justify-content:space-between;border-bottom:1px dashed var(--line);padding:4px 0;"><span style="width:26px;color:var(--navy);font-weight:700;">2</span><span style="flex:1;">赤嶺<br><span style="color:var(--ink-soft);">Akamine／赤嶺</span></span></div>
+      <div style="display:flex;justify-content:space-between;border-bottom:1px dashed var(--line);padding:4px 0;"><span style="width:26px;color:var(--navy);font-weight:700;">3</span><span style="flex:1;">小禄<br><span style="color:var(--ink-soft);">Oroku／小祿</span></span></div>
+      <div style="display:flex;justify-content:space-between;border-bottom:1px dashed var(--line);padding:4px 0;"><span style="width:26px;color:var(--navy);font-weight:700;">4</span><span style="flex:1;">奥武山公園<br><span style="color:var(--ink-soft);">Ounoyama Park／奧武山公園</span></span></div>
+      <div style="display:flex;justify-content:space-between;border-bottom:1px dashed var(--line);padding:4px 0;"><span style="width:26px;color:var(--navy);font-weight:700;">5</span><span style="flex:1;">壷川<br><span style="color:var(--ink-soft);">Tsubogawa／壺川</span></span></div>
+      <div style="display:flex;justify-content:space-between;border-bottom:1px dashed var(--line);padding:4px 0;"><span style="width:26px;color:var(--navy);font-weight:700;">6</span><span style="flex:1;">旭橋<br><span style="color:var(--ink-soft);">Asahibashi／旭橋（那霸巴士總站）</span></span></div>
+      <div style="display:flex;justify-content:space-between;border-bottom:1px dashed var(--line);padding:4px 0;background:#EAF1F1;margin:0 -6px;padding-left:6px;padding-right:6px;"><span style="width:26px;color:var(--seal);font-weight:700;">7</span><span style="flex:1;">県庁前<br><span style="color:var(--ink-soft);">Kenchomae／縣廳前（近縣廳北口巴士站）</span></span></div>
+      <div style="display:flex;justify-content:space-between;border-bottom:1px dashed var(--line);padding:4px 0;background:#EAF1F1;margin:0 -6px;padding-left:6px;padding-right:6px;"><span style="width:26px;color:var(--seal);font-weight:700;">8</span><span style="flex:1;"><strong>美栄橋</strong><br><span style="color:var(--ink-soft);">Miebashi／<strong>美榮橋（飯店最近站，步行5分）</strong></span></span></div>
+      <div style="display:flex;justify-content:space-between;border-bottom:1px dashed var(--line);padding:4px 0;"><span style="width:26px;color:var(--navy);font-weight:700;">9</span><span style="flex:1;">牧志<br><span style="color:var(--ink-soft);">Makishi／牧志（第一牧志公設市場最近站）</span></span></div>
+      <div style="display:flex;justify-content:space-between;border-bottom:1px dashed var(--line);padding:4px 0;"><span style="width:26px;color:var(--navy);font-weight:700;">10</span><span style="flex:1;">安里<br><span style="color:var(--ink-soft);">Asato／安里</span></span></div>
+      <div style="display:flex;justify-content:space-between;border-bottom:1px dashed var(--line);padding:4px 0;"><span style="width:26px;color:var(--navy);font-weight:700;">11</span><span style="flex:1;">おもろまち<br><span style="color:var(--ink-soft);">Omoromachi／歌町（Parco City最近站）</span></span></div>
+      <div style="display:flex;justify-content:space-between;padding:4px 0;color:var(--ink-soft);"><span style="width:26px;">…</span><span style="flex:1;">古島・儀保・首里 等8站（往首里城方向）<br><span style="font-size:11px;">Kojima, Gibo, Shuri, etc. ／往終點てだこ浦西</span></span></div>
+    </div>
+    <p style="font-size:12px;color:var(--ink-soft);margin-top:8px;">全線單程最貴約370日圓，班距約10分鐘一班。站名兩字以上通常對照漢字也能大致辨認，月台上的看板同時有日文、英文、中文標示。</p>
+  </div>
+
+  <div class="info-card">
+    <h3>🚌 公車</h3>
+    <p>前往美國村、Parco City等郊區景點需搭公車或機場巴士。</p>
+    <table>
+      <tr><th>路線</th><th>車資／時間</th></tr>
+      <tr><td>市區 → 美國村（120號等）</td><td>約900日圓・60–70分鐘</td></tr>
+      <tr><td>縣廳北口 → Parco City</td><td>約350–460日圓・20分鐘</td></tr>
+    </table>
+  </div>
+
+  <div class="info-card">
+    <h3>🕐 美國村巴士時刻表（Day2用）</h3>
+    <p><strong>東京巴士TK05 北谷門戶線（最推薦，直達國際通入口）</strong></p>
+    <table>
+      <tr><th>國際通入口發車</th><th>北谷（美國村）發車</th></tr>
+      <tr><td>10:45</td><td>12:00</td></tr>
+      <tr><td>12:00</td><td>13:30</td></tr>
+      <tr><td>14:00</td><td>15:30</td></tr>
+      <tr><td>15:30</td><td>17:00</td></tr>
+      <tr><td>17:30</td><td>19:00</td></tr>
+      <tr><td>19:00</td><td>20:15※</td></tr>
+    </table>
+    <p style="font-size:12px;color:#8b8272;margin-top:6px;">※20:15北谷發車僅到國際通入口，不回機場。班次每天可能微調，建議出發前用Google Maps或現場站牌再次確認。</p>
+    <p style="margin-top:8px;"><strong>120號公車（名護西空港線）</strong>：市區↔美國村，在「軍病院前」站下車步行3分鐘，約30分鐘一班，末班車建議現場確認。</p>
+    <p><strong>備案：</strong>計程車約3,000–3,500日圓（整台車），或使用叫車App。</p>
+    <p style="margin-top:10px;"><strong>🚌 可搭乘公車號碼一覽</strong></p>
+    <table>
+      <tr><th>路線</th><th>類型</th></tr>
+      <tr><td>TK05 北谷門戶線</td><td>首選・直達國際通入口，有固定時刻表</td></tr>
+      <tr><td>120號 名護西空港線</td><td>替代・約30分鐘一班，下車走軍病院前</td></tr>
+      <tr><td>20號 名護西線</td><td>替代・班次較少</td></tr>
+      <tr><td>28號 讀谷線（經楚辺）</td><td>替代・班次較少</td></tr>
+      <tr><td>29號 讀谷線（經喜名）</td><td>替代・班次較少</td></tr>
+    </table>
+  </div>
+
+  <div class="info-card">
+    <h3>🕐 前往 Parco City（Day3，兩種走法）</h3>
+    <p><strong>方式A｜縣廳北口公車（推薦）</strong><br>飯店步行約10–15分鐘到「縣廳北口」站，搭26號（琉球巴士）或32、43、309、334、385號（沖繩巴士），約20分鐘直達「PARCO CITY前」站，單程350–460日圓，不用轉乘。</p>
+    <p style="margin-top:10px;"><strong>方式B｜單軌電車＋歌町站接駁車</strong><br>美榮橋站搭單軌電車到歌町站（約8分鐘，230–370日圓），出站左手邊轉乘接駁車（約20分鐘，300日圓）。</p>
+    <table>
+      <tr><th>方向</th><th>首末班（方式B接駁車）</th></tr>
+      <tr><td>歌町站 → Parco City</td><td>約08:25 ～ 20:05</td></tr>
+      <tr><td>Parco City → 歌町站</td><td>約09:20 ～ 22:05</td></tr>
+    </table>
+    <p style="font-size:12px;color:var(--ink-soft);margin-top:6px;">接駁車平日20–30分鐘一班、假日10–20分鐘一班，限現金（車上可用千圓鈔換零錢）。兩種方式時間差不多，方式A少一次轉乘且離飯店近，方式B適合已經很熟悉單軌電車動線的話，兩種都可行，看當天心情選。</p>
+  </div>
+
+  <div class="info-card">
+    <h3>🚕 計程車</h3>
+    <p>太累或末班車錯過時的備案，尤其Day2晚上從美國村回飯店。</p>
+    <table>
+      <tr><th>路段</th><th>車程</th><th>費用</th></tr>
+      <tr><td>美國村 → 飯店</td><td>約35–40分鐘</td><td>約3,000–3,500日圓（整台）</td></tr>
+      <tr><td>Parco City → 飯店</td><td>約15–20分鐘</td><td>約2,000–2,500日圓（整台）</td></tr>
+      <tr><td>市區起跳價</td><td>—</td><td>600日圓起，22:00–05:00加成20%</td></tr>
+    </table>
+    <p style="font-size:12px;color:#8b8272;margin-top:6px;">費用為整台車價格（2人共乘更划算），實際車資依路況、跳表結果為準。可用GO、DiDi等叫車App，或請飯店櫃檯協助叫車。</p>
+  </div>
+
+  <div class="info-card">
+    <h3>💡 小提醒</h3>
+    <p>建議每天早上確認一次隔天的交通方式；Day2跟團回程務必先查美國村末班公車時間，並準備好叫車App作為備案。</p>
+  </div>
+</div>
+
+<!-- ============ HOTEL VIEW ============ -->
+<div class="view" id="view-hotel">
+  <div class="section-title">住宿資訊</div>
+  <div class="info-card">
+    <h3>JR九州Blossom那霸酒店</h3>
+    <p>JR九州ホテル ブラッサム那覇</p>
+    <p>📍 2 Chome-16-1 Makishi, Naha, Okinawa 900-0013</p>
+    <p>位置緊鄰美榮橋站（步行約5分鐘）與國際通（步行約1分鐘），步行可達大部分市區景點與餐廳，是整趟行程的市區據點。</p>
+    <a class="navbtn" target="_blank" href="https://www.google.com/maps/dir/?api=1&destination=2+Chome-16-1+Makishi%2C+Naha%2C+Okinawa+900-0013">在地圖上導航前往</a>
+  </div>
+  <div class="info-card">
+    <h3>入住／退房備忘</h3>
+    <p>Day1 抵達後先寄放行李逛街，下午回飯店辦理Check-in。</p>
+    <p>Day4 退房後行李可寄放櫃檯，最後採買完再取回前往機場。</p>
+  </div>
+</div>
+
+<!-- ============ PACKING VIEW ============ -->
+<div class="view" id="view-packing">
+  <div class="section-title">行前準備 / 行李清單</div>
+  <div class="info-card">
+    <h3>✅ 打包清單</h3>
+
+    <p style="font-weight:700;color:var(--navy-deep);margin:0 0 6px;">📄 重要文件</p>
+    <ul class="checklist" id="packingList">
+      <li><input type="checkbox"><span>護照</span></li>
+      <li><input type="checkbox"><span>護照影本</span></li>
+      <li><input type="checkbox"><span>日幣現金</span></li>
+      <li><input type="checkbox"><span>台幣</span></li>
+      <li><input type="checkbox"><span>信用卡</span></li>
+      <li><input type="checkbox"><span>網卡、eSIM</span></li>
+      <li><input type="checkbox"><span>機票、訂房確認（紙本印出）</span></li>
+      <li><input type="checkbox"><span>保險</span></li>
+      <li><input type="checkbox"><span>Visit Japan Web（電子入境網登入）</span></li>
+    </ul>
+
+    <p style="font-weight:700;color:var(--navy-deep);margin:16px 0 6px;">👕 衣物</p>
+    <ul class="checklist">
+      <li><input type="checkbox"><span>外出衣物</span></li>
+      <li><input type="checkbox"><span>防曬外套</span></li>
+      <li><input type="checkbox"><span>睡衣</span></li>
+      <li><input type="checkbox"><span>內衣</span></li>
+      <li><input type="checkbox"><span>免洗內褲</span></li>
+      <li><input type="checkbox"><span>襪子</span></li>
+      <li><input type="checkbox"><span>裝衣服的袋子</span></li>
+      <li><input type="checkbox"><span>拖鞋</span></li>
+      <li><input type="checkbox"><span>帽子</span></li>
+      <li><input type="checkbox"><span>太陽眼鏡</span></li>
+      <li><input type="checkbox"><span>飾品、髮圈、髮夾</span></li>
+    </ul>
+
+    <p style="font-weight:700;color:var(--navy-deep);margin:16px 0 6px;">🧴 盥洗用品</p>
+    <ul class="checklist">
+      <li><input type="checkbox"><span>牙刷、牙膏</span></li>
+      <li><input type="checkbox"><span>棉花棒</span></li>
+      <li><input type="checkbox"><span>洗面乳</span></li>
+      <li><input type="checkbox"><span>洗髮精、護髮乳、髮油</span></li>
+      <li><input type="checkbox"><span>身體乳</span></li>
+      <li><input type="checkbox"><span>藥膏（臉、手）</span></li>
+      <li><input type="checkbox"><span>梳子、鏡子</span></li>
+      <li><input type="checkbox"><span>化妝棉</span></li>
+      <li><input type="checkbox"><span>衛生紙</span></li>
+      <li><input type="checkbox"><span>濕紙巾、酒精擦</span></li>
+      <li><input type="checkbox"><span>拋棄式枕頭套</span></li>
+      <li><input type="checkbox"><span>拋棄式毛巾</span></li>
+      <li><input type="checkbox"><span>牙線</span></li>
+      <li><input type="checkbox"><span>衛生棉（備用）</span></li>
+    </ul>
+
+    <p style="font-weight:700;color:var(--navy-deep);margin:16px 0 6px;">💄 化妝品</p>
+    <ul class="checklist">
+      <li><input type="checkbox"><span>防曬</span></li>
+      <li><input type="checkbox"><span>化妝品</span></li>
+      <li><input type="checkbox"><span>粉撲、刷具</span></li>
+      <li><input type="checkbox"><span>保養品</span></li>
+      <li><input type="checkbox"><span>卸妝用品</span></li>
+      <li><input type="checkbox"><span>定型噴霧（頭髮）</span></li>
+      <li><input type="checkbox"><span>護手霜、護唇膏</span></li>
+      <li><input type="checkbox"><span>香水</span></li>
+      <li><input type="checkbox"><span>離子夾</span></li>
+    </ul>
+
+    <p style="font-weight:700;color:var(--navy-deep);margin:16px 0 6px;">🔌 3C用品</p>
+    <ul class="checklist">
+      <li><input type="checkbox"><span>手機</span></li>
+      <li><input type="checkbox"><span>手機吊繩</span></li>
+      <li><input type="checkbox"><span>耳機（有線、無線）</span></li>
+      <li><input type="checkbox"><span>充電器</span></li>
+      <li><input type="checkbox"><span>充電線</span></li>
+      <li><input type="checkbox"><span>行動電源</span></li>
+      <li><input type="checkbox"><span>行李電子秤</span></li>
+      <li><input type="checkbox"><span>隨身電扇（充電線）</span></li>
+    </ul>
+
+    <p style="font-weight:700;color:var(--navy-deep);margin:16px 0 6px;">🎒 其他</p>
+    <ul class="checklist">
+      <li><input type="checkbox"><span>雨傘</span></li>
+      <li><input type="checkbox"><span>頸枕</span></li>
+      <li><input type="checkbox"><span>口罩</span></li>
+      <li><input type="checkbox"><span>水壺</span></li>
+      <li><input type="checkbox"><span>行李箱束帶</span></li>
+      <li><input type="checkbox"><span>蚊蟲叮咬藥</span></li>
+      <li><input type="checkbox"><span>OK蹦</span></li>
+      <li><input type="checkbox"><span>常備藥品（暈車藥、頭痛藥、腸胃藥）</span></li>
+      <li><input type="checkbox"><span>壓縮袋</span></li>
+      <li><input type="checkbox"><span>飲料提袋</span></li>
+      <li><input type="checkbox"><span>環保購物袋</span></li>
+      <li><input type="checkbox"><span>夾鏈袋（手提行李用）</span></li>
+    </ul>
+
+    <p style="margin-top:10px;font-size:12px;color:var(--ink-soft);">勾選會保留在這台裝置上，重新整理頁面不會消失。</p>
+  </div>
+
+  <div class="info-card">
+    <h3>💡 可能還漏掉的東西</h3>
+    <ul class="checklist">
+      <li><input type="checkbox"><span>隱形眼鏡與藥水（如有配戴，備用一副更保險）</span></li>
+      <li><input type="checkbox"><span>生理期止痛藥</span></li>
+      <li><input type="checkbox"><span>曬後修復凝膠／蘆薈膠（8月太陽很曬，曬傷很常見）</span></li>
+      <li><input type="checkbox"><span>輕便斜背小包（Day2跟團當天輕裝比較好活動）</span></li>
+      <li><input type="checkbox"><span>原子筆（以防需要手寫任何文件）</span></li>
+      <li><input type="checkbox"><span>備用眼鏡（如平常戴隱形眼鏡，晚上可換戴眼鏡休息）</span></li>
+      <li><input type="checkbox"><span>密封袋多備幾個（戰利品、濕的泳裝或換洗衣物分裝）</span></li>
+    </ul>
+    <p style="margin-top:8px;font-size:12px;color:var(--ink-soft);">電壓跟台灣相同，不用帶轉接頭；行動電源、液體、化妝品噴霧的攜帶限制在下面「搭機須知」卡片裡有詳細說明，記得依規定分裝。</p>
+  </div>
+
+  <div class="info-card">
+    <h3>✈️ 搭機須知（台灣虎航）</h3>
+    <p><strong>託運行李：</strong>去程20kg、回程25kg（已確認額度）。單件託運不得超過30公斤，三邊總和不超過203公分。同訂位代號、一起劃位者可共享額度。</p>
+    <p style="margin-top:8px;"><strong>手提行李：</strong>1件登機箱＋1件個人隨身物品（如包包、免稅品），2件合計不得超過<strong>10公斤</strong>。登機箱尺寸上限54×38×23公分（含輪子把手），近期虎航改用紙板箱嚴格量測，行李箱盡量選22吋以下較保險。登機口若被判定超重，現場需付費改託運，比事先加購貴很多。</p>
+    <p style="margin-top:8px;"><strong>液體類（隨身攜帶）：</strong>單瓶不超過100ml，全部裝進一個透明可重複密封夾鏈袋，超過100ml的一律要託運，不能手提。</p>
+    <p style="margin-top:8px;"><strong>行動電源／鋰電池：</strong>只能手提上機、絕對不能放託運行李。100Wh以下（約20,000mAh內）不限數量；100–160Wh需經航空公司同意，最多2顆；超過160Wh禁止攜帶。建議收在包包裡，接口貼絕緣膠帶或用袋子包好。</p>
+    <p style="margin-top:8px;"><strong>其他隨身違禁品：</strong>刀具、打火機、超過100ml的噴霧/膏狀化妝品等一律禁止手提，需託運或直接不帶。</p>
+    <div class="meta" style="margin-top:8px;">
+      <span class="pill">⚠️ 去程06:50起飛，記得提前預訂計程車去桃園機場</span>
+    </div>
+    <p style="margin-top:10px;"><strong>建議抵達機場時間：</strong></p>
+    <table>
+      <tr><th>航班</th><th>建議抵達時間</th><th>說明</th></tr>
+      <tr><td>去程 桃園→那霸<br>06:50起飛</td><td>約04:00–04:20<br>（提前2.5–3小時）</td><td>有託運行李需現場報到，凌晨時段建議提前預訂好計程車，大眾運輸這時段多半未營運</td></tr>
+      <tr><td>回程 那霸→桃園<br>21:40起飛</td><td>約19:00–19:30前<br>（提前2–2.5小時）</td><td>你們安排16:30從市區出發、16:45到機場，時間很充裕，可以安心逛免稅店</td></tr>
+      <tr><td colspan="3" style="font-size:11.5px;color:var(--ink-soft);border-bottom:none;padding-top:2px;">※19:00–19:30指的是虎航報到櫃檯截止辦理登機手續的時間，不是到機場大門的時間</td></tr>
+    </table>
+    <p style="font-size:12px;color:var(--ink-soft);margin-top:6px;">登機門通常於起飛前20–15分鐘關閉，務必在起飛前45–50分鐘抵達登機口。規定可能調整，出發前建議至虎航官網再次確認。</p>
+  </div>
+
+  <div class="info-card">
+    <h3>🗣️ 實用日語會話</h3>
+    <p style="margin-bottom:10px;">日文＋羅馬拼音＋英文對照，緊急時也能直接把日文給店員看。</p>
+    <ul class="checklist" style="gap:2px;">
+      <li><span><strong>我想寄放行李</strong><br>荷物を預けたいです<br><span style="color:var(--ocean);">Nimotsu o azuketai desu</span><br><span style="font-style:italic;">I'd like to store my luggage.</span></span></li>
+      <li><span><strong>請問廁所在哪裡？</strong><br>お手洗いはどこですか？<br><span style="color:var(--ocean);">Otearai wa doko desu ka?</span><br><span style="font-style:italic;">Where is the restroom?</span></span></li>
+      <li><span><strong>可以退稅嗎？</strong><br>免税できますか？<br><span style="color:var(--ocean);">Menzei dekimasu ka?</span><br><span style="font-style:italic;">Can I get a tax refund?</span></span></li>
+      <li><span><strong>多少錢？</strong><br>いくらですか？<br><span style="color:var(--ocean);">Ikura desu ka?</span><br><span style="font-style:italic;">How much is it?</span></span></li>
+      <li><span><strong>可以刷卡嗎？</strong><br>カードは使えますか？<br><span style="color:var(--ocean);">Kaado wa tsukaemasu ka?</span><br><span style="font-style:italic;">Can I pay by card?</span></span></li>
+      <li><span><strong>請幫我叫計程車</strong><br>タクシーを呼んでください<br><span style="color:var(--ocean);">Takushii o yonde kudasai</span><br><span style="font-style:italic;">Please call a taxi for me.</span></span></li>
+      <li><span><strong>我要這個（點餐/購買時）</strong><br>これをください<br><span style="color:var(--ocean);">Kore o kudasai</span><br><span style="font-style:italic;">I'll take this, please.</span></span></li>
+      <li><span><strong>不好意思（叫人／借過）</strong><br>すみません<br><span style="color:var(--ocean);">Sumimasen</span><br><span style="font-style:italic;">Excuse me.</span></span></li>
+      <li><span><strong>謝謝</strong><br>ありがとうございます<br><span style="color:var(--ocean);">Arigatou gozaimasu</span><br><span style="font-style:italic;">Thank you.</span></span></li>
+      <li><span><strong>我不能吃辣</strong><br>辛いのが苦手です<br><span style="color:var(--ocean);">Karai no ga nigate desu</span><br><span style="font-style:italic;">I can't eat spicy food.</span></span></li>
+      <li><span><strong>買單、結帳</strong><br>お会計お願いします<br><span style="color:var(--ocean);">Okaikei onegaishimasu</span><br><span style="font-style:italic;">Check, please.</span></span></li>
+      <li><span><strong>請問到＿＿怎麼走？</strong><br>＿＿までどう行けばいいですか？<br><span style="color:var(--ocean);">___ made dou ikeba ii desu ka?</span><br><span style="font-style:italic;">How do I get to ___?</span></span></li>
+    </ul>
+  </div>
+
+  <div class="info-card">
+    <h3>🌴 實用資訊</h3>
+    <p><strong>換匯：</strong>機場、市區銀行、國際通周邊皆可，市區匯率通常較機場好。</p>
+    <p><strong>保險：</strong>目前尚未購買，建議出發前加保旅遊平安險。</p>
+    <p><strong>颱風季：</strong>8月為好發季節，出發前3天密切關注氣象與航班狀況。</p>
+    <p><strong>電壓：</strong>與台灣相同，不需轉接頭。</p>
+  </div>
+</div>
+
+<!-- ============ BUDGET VIEW ============ -->
+<div class="view" id="view-budget">
+  <div class="section-title">預算總覽<span class="tag">兩人合計・台幣</span></div>
+
+  <div class="info-card">
+    <h3>💰 預算分配（不含購物・免稅店・保險）</h3>
+    <div class="budget-row"><span>一般餐費（4餐 × 2人）</span><span>約 8,000</span></div>
+    <div class="budget-row"><span>燒肉 Buchi Kumojiten</span><span>約 6,000</span></div>
+    <div class="budget-row"><span>阿古豬火鍋</span><span>約 2,400</span></div>
+    <div class="budget-row"><span>一日跟團（Klook，2人）</span><span>約 3,140</span></div>
+    <div class="budget-row"><span>市區交通</span><span>約 2,000</span></div>
+    <div class="budget-row"><span>網卡（2人）</span><span>約 1,200</span></div>
+    <div class="budget-total"><span>合計</span><span>約 22,740</span></div>
+  </div>
+
+  <div class="info-card">
+    <h3>📌 說明</h3>
+    <p>總預算設定為兩人合計約2萬台幣，可接受略微超出，目前抓法在合理範圍內。</p>
+    <p>機票、飯店費用已另外支出，不計入此預算表。</p>
+    <p>伴手禮、購物、免稅店採買、旅遊保險無設限，依個人需求另計。</p>
+  </div>
+</div>
+
+<!-- ============ TAB BAR ============ -->
+<div class="tabbar">
+  <button class="tabbtn active" data-view="days">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="16" y1="2" x2="16" y2="6"/></svg>
+    每日行程
+  </button>
+  <button class="tabbtn" data-view="transport">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+    交通
+  </button>
+  <button class="tabbtn" data-view="hotel">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21V9l9-6 9 6v12"/><path d="M9 21v-6h6v6"/></svg>
+    住宿
+  </button>
+  <button class="tabbtn" data-view="packing">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="7" width="16" height="13" rx="2"/><path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2"/></svg>
+    行李
+  </button>
+  <button class="tabbtn" data-view="budget">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9 9.5c0-1.5 3-2.5 4.5-1 1 1 1 2.5-1.5 3.5S9 13.5 9 14.5c0 1.5 3.5 2.5 5 1"/></svg>
+    預算
+  </button>
+</div>
+
+<script>
+// tab switching
+document.querySelectorAll('.tabbtn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.tabbtn').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('view-'+btn.dataset.view).classList.add('active');
+    window.scrollTo({top:0,behavior:'instant'});
+  });
+});
+
+// day switching
+document.querySelectorAll('.day-tab').forEach(tab=>{
+  tab.addEventListener('click',()=>{
+    document.querySelectorAll('.day-tab').forEach(t=>t.classList.remove('active'));
+    document.querySelectorAll('.day-panel').forEach(p=>p.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById('day-'+tab.dataset.day).classList.add('active');
+  });
+});
+
+// packing list persistence (in-memory only, per session)
+const checks = document.querySelectorAll('#view-packing .checklist input[type=checkbox]');
+checks.forEach((c,i)=>{
+  c.addEventListener('change',()=>{
+    c.parentElement.style.opacity = c.checked ? '0.5' : '1';
+    c.parentElement.style.textDecoration = c.checked ? 'line-through' : 'none';
+  });
+});
+</script>
+</body>
+</html>
